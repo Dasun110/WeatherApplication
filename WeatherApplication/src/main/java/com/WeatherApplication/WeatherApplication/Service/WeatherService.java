@@ -67,7 +67,7 @@ public class WeatherService {
                     LocalDate date = LocalDate.parse(data.getDt_txt().substring(0, 10));
                     return !date.isBefore(sevenDaysAgo) && !date.isAfter(today);
                 })
-                .collect(Collectors.toList());
+                .toList();
 
         if (weatherData.isEmpty()) {
             throw new RuntimeException("No weather data available for the last 7 days");
